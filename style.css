@@ -36,5 +36,49 @@ rgba(25,25,112,.08);
 
 --transition:
 300ms ease;
+}
+
+[data-theme="dark"]{
+
+
+--bg-primary:#080A17;
+
+--bg-secondary:#12172C;
+
+
+--surface:#1B2140;
+
+
+--primary:#5B66D6;
+
+
+--accent:#D4AF37;
+
+
+--text:#F8FAFC;
+
+
+--muted:#B9C1D9;
+
+--border:
+rgba(212,175,55,.12);
+
+
+--shadow:
+0 20px 60px
+rgba(0,0,0,.55);
 
 }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+
+
+
