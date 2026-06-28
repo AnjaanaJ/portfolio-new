@@ -1,0 +1,60 @@
+name: Portfolio CD
+
+on:
+  workflow_run:
+    workflows:
+      - Portfolio CI
+    types:
+      - completed
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+
+    if: >
+      github.event.workflow_run.conclusion == 'success'
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare Site
+        run: |
+          mkdir build
+
+          cp index.html build/
+          cp style.css build/
+          cp script.js build/
+
+          if [ -d images ]; then
+            cp -R images build/
+          fi
+
+      - name: Upload Site
+        uses: actions/upload-pages-artifact@v3
+
+        with:
+          path: build
+
+      - name: Deploy Site
+        id: deployment
+
+        uses: actions/deploy-pages@v4
