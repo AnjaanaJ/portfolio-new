@@ -79,6 +79,52 @@ html{
 scroll-behavior:smooth;
 }
 
+body{
+
+font-family:
+Inter,
+sans-serif;
+
+
+background:
+var(--bg-primary);
+
+
+color:
+var(--text);
+
+overflow-x:hidden;
+
+transition:
+background .4s,
+color .4s;
+
+}
+
+img{
+display:block;
+width:100%;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button{
+font:inherit;
+}
+
+ul{
+list-style:none;
+}
+
+section{
+padding:
+120px 10%;
+}
+
+
 
 
 
