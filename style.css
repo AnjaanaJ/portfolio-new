@@ -638,7 +638,69 @@ gap:14px;
 
 }
 
+.pipeline div{
 
+background:
+var(--surface);
+
+padding:
+18px 40px;
+
+border-radius:
+999px;
+
+box-shadow:
+var(--shadow);
+
+}
+.contact-form{
+
+max-width:700px;
+
+margin:auto;
+
+display:grid;
+
+gap:18px;
+
+}
+.contact-form input,
+.contact-form textarea{
+
+padding:18px;
+
+border:none;
+
+background:
+var(--surface);
+
+color:
+var(--text);
+
+border-radius:
+18px;
+
+outline:none;
+
+box-shadow:
+var(--shadow);
+
+}
+textarea{
+
+min-height:180px;
+
+resize:none;
+
+}
+#formSuccess{
+
+text-align:center;
+
+color:
+var(--primary);
+
+}
 
 
 
