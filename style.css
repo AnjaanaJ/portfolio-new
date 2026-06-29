@@ -503,7 +503,54 @@ display:grid;
 gap:20px;
 
 }
+.skills-grid{
 
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+.skill-card{
+
+background:
+var(--surface);
+
+padding:30px;
+
+border-radius:
+var(--radius);
+
+transition:.3s;
+
+box-shadow:
+var(--shadow);
+
+}
+.skill-card:hover{
+
+transform:
+translateY(-10px);
+
+}
+
+.progress{
+
+margin:
+20px 0;
+
+height:8px;
+
+background:
+rgba(120,120,120,.15);
+
+border-radius:999px;
+
+overflow:hidden;
+
+}
 
 .progress span{
 
