@@ -1,3 +1,4 @@
+(()=>{
 const body = document.body;
 
 const navbar =
@@ -52,10 +53,9 @@ function updateThemeIcon(theme){
 if(!toggle)return;
 
 toggle.textContent =
-theme === "dark"
+theme==="dark"
 ? "🌙"
-: "☀";
-
+: "☀"
 }
 function switchTheme () {
  const current=document.documentElement.getAttribute("data-theme");
@@ -148,16 +148,13 @@ if(
 e.key==="Enter"
 ||
 e.key===" "
+||
+e.key==="space"
 ){
 
 toggleMenu();
 
-}
-
-}
-
-);
-
+}});
 }
 
 
@@ -414,33 +411,7 @@ window.scrollY
     }
 );
 
-function animateProgress(){
 
-const bars =
-document.querySelectorAll(".progress span");
-
-bars
-.forEach((bar)=>{
-
-const width =
-bar.style.width;
-
-bar.style.width ="0";
-
-setTimeout(
-()=>{
-
-bar.style.width =width;
-
-},
-250
-
-);
-
-});
-
-}
-window.addEventListener("load",animateProgress);
 
 function validateEmail(email){
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -455,7 +426,7 @@ if(form){
         const msg=inputs[2].value.trim();
 
         if(name.length<2){
-            alaert("Enter valid name");
+            alert("Enter valid name");
             return;
         }
         if(!validateEmail(email)){
@@ -494,13 +465,21 @@ e.key ===
 "Escape"
 
 ){
+    if(nav){
 
 nav.classList.remove("open");
-
+    }
 }}
 
 );
     
+detectTheme();
+
+updateNavbar();
+
+activateNav();
+
+})();
 
 
 
