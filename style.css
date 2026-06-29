@@ -701,9 +701,13 @@ color:
 var(--primary);
 
 }
+footer{
 
+padding:40px;
 
+text-align:center;
 
+color:
+var(--muted);
 
-
-
+}

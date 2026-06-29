@@ -21,6 +21,70 @@ document.getElementById("formSuccess");
 const typing =
 document.getElementById("typing");
 
+const STORAGE="portfolio-theme";
+ 
+function detectTheme(){
+    const saved=localStorage.getItem(STORAGE);
+
+    if(saved){
+        document.documentElement.setAttribute("data-theme",saved);
+        updateThemeIcon(saved);
+        return;
+    }
+
+    const systemDark=window.matchMedia("(prefers-color-schema: dark)").matches;
+    const initial=systemDark? "dark": "light";
+
+document.documentElement
+.setAttribute(
+"data-theme",
+initial
+);
+updateThemeIcon(
+initial
+);
+
+}
+
+
+function updateThemeIcon(theme){
+
+if(!toggle)return;
+
+toggle.textContent =
+theme === "dark"
+? "🌙"
+: "☀";
+
+}
+function switchTheme () {
+ const current=document.documentElement.getAttribute("data-theme");
+ const next=currnet=== "dark" 
+ ? "light"
+: "dark";
+
+document.documentElement
+.setAttribute(
+"data-theme",
+next
+);
+localStorage
+.setItem(
+STORAGE,
+next
+);
+
+updateThemeIcon(next);
+
+}
+if(toggle){
+
+toggle.addEventListener(
+"click",
+switchTheme
+);
+
+}
 function updateNavbar(){
 
 if(window.scrollY > 30){
@@ -304,7 +368,7 @@ type();
 
 
 
-/*
+
 
 
 
