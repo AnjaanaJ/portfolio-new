@@ -32,7 +32,7 @@ function detectTheme(){
         return;
     }
 
-    const systemDark=window.matchMedia("(prefers-color-schema: dark)").matches;
+    const systemDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initial=systemDark? "dark": "light";
 
 document.documentElement
@@ -59,7 +59,7 @@ theme === "dark"
 }
 function switchTheme () {
  const current=document.documentElement.getAttribute("data-theme");
- const next=currnet=== "dark" 
+ const next=current=== "dark" 
  ? "light"
 : "dark";
 
@@ -86,6 +86,9 @@ switchTheme
 
 }
 function updateNavbar(){
+
+    if(!navbar)
+        return;
 
 if(window.scrollY > 30){
 
@@ -210,6 +213,8 @@ sections.forEach(
 const top =
 section.offsetTop;
 
+const height=section.offsetHeight;
+
 if(
 
 scrollY >=
@@ -267,6 +272,8 @@ window.addEventListener(
 "scroll",
 activateNav
 );
+
+
 const words = [
 
 "Frontend Developer",
@@ -366,6 +373,28 @@ deleting
 
 type();
 
+
+const reveals=document.querySelectorAll(
+    ".reveal"
+);
+const observer= new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        }
+    );
+    },
+    {
+        threshold: 0.15
+    }
+);
+reveals.forEach(e1=>
+{
+    observer.observe(e1);
+}
+);
 
 
 
