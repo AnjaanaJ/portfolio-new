@@ -440,6 +440,54 @@ bar.style.width =width;
 });
 
 }
+window.addEventListener("load",animateProgress);
+
+function validateEmail(email){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    .test(email);
+}
+if(form){
+    form.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        const inputs=form.querySelectorAll("input,textarea");
+        const name=inputs[0].value.trim();
+        const email=inputs[1].value.trim();
+        const msg=inputs[2].value.trim();
+
+        if(name.length<2){
+            alaert("Enter valid name");
+            return;
+        }
+        if(!validateEmail(email)){
+            alert("Enter valid Email");
+            return;
+        }
+        if(msg.length<10){
+            alert("msg too short");
+            return;
+        }
+        success.textContent="✓ Message validated successfully";
+
+        form.reset();
+
+setTimeout(
+()=>{
+
+success.textContent =
+"";
+
+},
+4000
+
+);
+
+}
+
+);
+
+}
+    
+
 
 
 
