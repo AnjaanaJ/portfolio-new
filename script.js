@@ -486,6 +486,20 @@ success.textContent =
 );
 
 }
+window.addEventListener("keydown",(e)=>{
+
+if(
+
+e.key ===
+"Escape"
+
+){
+
+nav.classList.remove("open");
+
+}}
+
+);
     
 
 
