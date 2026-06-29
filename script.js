@@ -203,6 +203,108 @@ window.addEventListener(
 "scroll",
 activateNav
 );
+const words = [
+
+"Frontend Developer",
+
+"UI Designer",
+
+"Java Developer",
+
+"DevOps Learner",
+
+"Portfolio Creator"
+
+];
+
+let word = 0;
+
+let letter = 0;
+
+let deleting = false;
+
+
+function type(){
+
+if(!typing)
+return;
+
+const current =
+words[word];
+
+typing.textContent =
+
+current.slice(
+0,
+letter
+);
+
+
+if(!deleting){
+
+letter++;
+
+if(
+letter >
+current.length
+){
+
+deleting = true;
+
+setTimeout(
+type,
+1200
+);
+
+return;
+
+}
+
+}
+else{
+
+letter--;
+
+if(
+letter < 0
+){
+
+deleting =
+false;
+
+word =
+
+(
+word + 1
+)
+
+%
+
+words.length;
+
+letter = 0;
+
+}
+
+}
+
+setTimeout(
+
+type,
+
+deleting
+? 45
+: 90
+
+);
+
+}
+
+type();
+
+
+
+/*
 
 
 
