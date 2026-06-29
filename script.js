@@ -396,6 +396,24 @@ reveals.forEach(e1=>
 }
 );
 
+const hero= document.querySelector(".hero");
+window.addEventListener(
+    "scroll",()=>{
+        if(!hero)
+            return;
+
+        hero
+.style
+.transform =
+
+`translateY(${
+window.scrollY
+* 0.06
+}px)`;
+
+    }
+);
+
 
 
 
