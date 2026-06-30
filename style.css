@@ -907,13 +907,24 @@ color:
 var(--text);
 font-size:.9rem;
 font-weight:600;
+transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+cursor: default;
 }
 
-.skill-tech i{
+.skill-tech span:hover{
+transform: translateY(-3px);
+border-color: rgba(212, 175, 55, 0.6);
+box-shadow: 0 4px 12px rgba(91, 102, 214, 0.15);
+}
+
+.skill-tech span i{
 color:
 var(--accent);
-font-size:1rem;
+font-size:1.1rem;
 line-height:1;
+display: inline-flex;
+align-items: center;
+justify-content: center;
 }
 
 .progress{
@@ -1028,14 +1039,25 @@ var(--text);
 font-size:.9rem;
 
 font-weight:600;
+transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+cursor: default;
 
+}
+
+.stack span:hover{
+transform: translateY(-3px);
+border-color: rgba(212, 175, 55, 0.6);
+box-shadow: 0 4px 12px rgba(91, 102, 214, 0.15);
 }
 
 .stack span i{
 color:
 var(--accent);
-font-size:1rem;
+font-size:1.1rem;
 line-height:1;
+display: inline-flex;
+align-items: center;
+justify-content: center;
 }
 .project-links{
 
