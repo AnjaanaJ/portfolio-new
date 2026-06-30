@@ -856,6 +856,10 @@ translateY(-10px);
 
 }
 
+.skill-card > p{
+display:none;
+}
+
 .skill-icon{
 width:58px;
 height:58px;
@@ -875,6 +879,41 @@ font-size:1.5rem;
 box-shadow:
 0 10px 25px
 rgba(91,102,214,.25);
+}
+
+.skill-tech{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.skill-tech span{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:
+9px 13px;
+border-radius:999px;
+background:
+linear-gradient(
+135deg,
+rgba(91,102,214,.16),
+rgba(212,175,55,.14)
+);
+border:
+1px solid rgba(212,175,55,.28);
+color:
+var(--text);
+font-size:.9rem;
+font-weight:600;
+}
+
+.skill-tech i{
+color:
+var(--accent);
+font-size:1rem;
+line-height:1;
 }
 
 .progress{
