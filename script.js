@@ -217,88 +217,41 @@
       }
     }
   });
-  /* ======================
-WHOLE PAGE SCROLL REVEAL
-====================== */
-
-  const reveals = document.querySelectorAll(
-    ".hero, .about-grid, .skill-card, .project, .cert-card, .contact-item, .contact-form",
-  );
-
  /* ======================
-WHOLE PAGE SCROLL REVEAL
+SCROLL REVEAL
 ====================== */
 
 const reveals =
-document.querySelectorAll(
-
-".hero, .about-grid, .skill-card, .project, .cert-card, .contact-item, .contact-form"
-
-);
-
-/* Hide immediately */
-
-reveals.forEach(
-
-(el)=>{
-
-el.classList.add(
-"reveal"
-);
-
-}
-
-);
+document.querySelectorAll(".reveal");
 
 const observer =
 new IntersectionObserver(
 
 (entries)=>{
 
-entries.forEach(
+entries.forEach((entry)=>{
 
-(entry)=>{
+if(entry.isIntersecting){
 
-if(
-
-entry.isIntersecting
-
-){
-
-entry.target.classList.add(
-"active"
-);
+entry.target.classList.add("active");
 
 }
 
-}
-
-);
+});
 
 },
 
 {
-
-threshold:0.12,
-
-rootMargin:
-"0px 0px -80px 0px"
-
+threshold:0.12
 }
 
 );
 
-reveals.forEach(
+reveals.forEach((el)=>{
 
-(el)=>{
+observer.observe(el);
 
-observer.observe(
-el
-);
-
-}
-
-);
+});
 
   detectTheme();
 
