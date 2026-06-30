@@ -1,6 +1,8 @@
 (() => {
   const body = document.body;
 
+  const preloader = document.getElementById("preloader");
+
   const navbar = document.getElementById("navbar");
 
   const toggle = document.getElementById("themeToggle");
@@ -16,6 +18,17 @@
   const typing = document.getElementById("typing");
 
   const STORAGE = "portfolio-theme";
+
+  function hidePreloader() {
+    if (!preloader) return;
+
+    preloader.classList.add("hidden");
+    body.classList.remove("preloading");
+  }
+
+  window.addEventListener("load", () => {
+    setTimeout(hidePreloader, 450);
+  });
 
   function detectTheme() {
     const saved = localStorage.getItem(STORAGE);

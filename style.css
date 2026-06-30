@@ -101,8 +101,143 @@ color .4s;
 
 }
 
+body.preloading{
+overflow:hidden;
+}
+
 main{
 width:100%;
+}
+
+.preloader{
+position:fixed;
+inset:0;
+z-index:9999;
+display:grid;
+place-items:center;
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(91,102,214,.22),
+transparent 30%
+),
+radial-gradient(
+circle at 80% 15%,
+rgba(212,175,55,.18),
+transparent 28%
+),
+var(--bg-primary);
+transition:
+opacity .55s ease,
+visibility .55s ease;
+}
+
+.preloader.hidden{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.preloader-content{
+position:relative;
+display:grid;
+justify-items:center;
+gap:22px;
+}
+
+.preloader-ring{
+width:118px;
+height:118px;
+position:relative;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--accent)
+);
+box-shadow:
+var(--shadow);
+animation:
+preloaderPulse 1.8s ease-in-out infinite;
+}
+
+.preloader-ring::before{
+content:"";
+position:absolute;
+inset:8px;
+border-radius:50%;
+background:
+var(--bg-primary);
+}
+
+.preloader-ring::after{
+content:"";
+position:absolute;
+inset:-9px;
+border-radius:50%;
+border:2px solid transparent;
+border-top-color:
+var(--accent);
+border-right-color:
+var(--primary);
+animation:
+preloaderSpin 1s linear infinite;
+}
+
+.preloader-ring span{
+position:relative;
+z-index:1;
+font-size:1.55rem;
+font-weight:800;
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--accent)
+);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.preloader-content p{
+color:
+var(--muted);
+font-size:.9rem;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.preloader-orb{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+opacity:.22;
+animation:
+float 10s ease infinite;
+}
+
+.preloader-orb-1{
+width:260px;
+height:260px;
+left:-80px;
+top:18%;
+background:
+var(--primary);
+}
+
+.preloader-orb-2{
+width:220px;
+height:220px;
+right:-70px;
+bottom:20%;
+background:
+var(--accent);
+animation-delay:-3s;
 }
 
 img{
@@ -467,6 +602,38 @@ color:
 var(--muted);
 
 }
+
+.socials a{
+display:inline-flex;
+align-items:center;
+gap:8px;
+transition:
+var(--transition);
+}
+
+.socials i{
+width:36px;
+height:36px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--accent)
+);
+color:white;
+font-size:1rem;
+}
+
+.socials a:hover{
+color:
+var(--text);
+transform:
+translateY(-3px);
+}
 .btn{
 
 display:inline-flex;
@@ -551,11 +718,11 @@ color:transparent;
 display:grid;
 
 grid-template-columns:
-1fr 2fr;
+minmax(260px,360px) minmax(0,1fr);
 
-gap:30px;
+gap:48px;
 
-align-items:start;
+align-items:center;
 
 }
 .profile-card{
@@ -577,6 +744,8 @@ flex-direction:column;
 
 align-items:center;
 
+height:100%;
+
 }
 .profile-image{
 
@@ -584,7 +753,9 @@ width:100%;
 
 max-width:300px;
 
-height:450px;
+height:100%;
+
+min-height:420px;
 
 object-fit:cover;
 
@@ -599,8 +770,18 @@ margin-top:16px;
 
 display:grid;
 
-gap:20px;
+gap:22px;
 
+align-content:center;
+
+text-align:left;
+
+}
+
+.about-block p{
+line-height:1.8;
+color:
+var(--muted);
 }
 .skills-grid{
 
@@ -633,6 +814,27 @@ var(--shadow);
 transform:
 translateY(-10px);
 
+}
+
+.skill-icon{
+width:58px;
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:22px;
+border-radius:18px;
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--accent)
+);
+color:white;
+font-size:1.5rem;
+box-shadow:
+0 10px 25px
+rgba(91,102,214,.25);
 }
 
 .progress{
@@ -826,6 +1028,14 @@ scale(1.04);
         padding-top: 120px;
         min-height:auto;
     }
+
+    .profile-card{
+        height:auto;
+    }
+
+    .profile-image{
+        height:420px;
+    }
 }
 @media(max-width:600px){
     .section,
@@ -941,6 +1151,10 @@ color:white;
 
 flex-shrink:0;
 
+}
+
+.contact-icon i{
+line-height:1;
 }
 
 
@@ -1218,4 +1432,35 @@ opacity:1;
 transform:
 translateY(0);
 
+}
+
+@keyframes preloaderSpin{
+to{
+transform:
+rotate(360deg);
+}
+}
+
+@keyframes preloaderPulse{
+0%,
+100%{
+transform:
+scale(1);
+}
+50%{
+transform:
+scale(1.05);
+}
+}
+
+@keyframes float{
+0%,
+100%{
+transform:
+translate3d(0,0,0);
+}
+50%{
+transform:
+translate3d(0,-22px,0);
+}
 }
