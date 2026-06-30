@@ -27,7 +27,7 @@
   }
 
   window.addEventListener("load", () => {
-    setTimeout(hidePreloader, 450);
+    setTimeout(hidePreloader, 3000);
   });
 
   function detectTheme() {
@@ -143,8 +143,6 @@
     "Java Developer",
 
     "DevOps Learner",
-
-    "Portfolio Creator",
   ];
 
   let word = 0;
@@ -230,9 +228,7 @@
       }
     }
   });
- /* ======================
-SCROLL REVEAL
-====================== */
+
 
 const reveals =
 document.querySelectorAll(".reveal");
